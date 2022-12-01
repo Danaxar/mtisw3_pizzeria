@@ -1,9 +1,12 @@
 import React from "react";
+import 'boxicons';
+import Navbar from "./components/Navbar";
+import Home from "./pages";
 
 function App() {
   return (
     <div className="App">
-      <h1>Hola mundo!</h1>      
+      <Home/>
     </div>
   );
 }
