@@ -24,9 +24,26 @@
     margin-top: 1%;
 }
 
-.pedir-llevar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Padre */
+.pedir-llevar-padre{
+    /* display: flex; */
+    /* justify-content: space-between; */
+    /* align-items: center; */
     padding: 5px 10%;
+    text-align: center;
+    background-color: blue;
+}
+
+.pedir-llevar-hijo{
+    background-color: red;
+    margin: 0px auto;
+}
+
+.opcion{
+    border: 1px solid #2e518b; /*anchura, estilo y color borde*/
+    padding: 30px; /*espacio alrededor texto*/
+    background-color: #2e518b; /*color botón*/
+    color: #ffffff; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    border-radius: 50px; /*bordes redondos*/
 }

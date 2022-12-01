@@ -25,22 +25,19 @@ const Home = () => {
                     </div>
                 </div>
 
-                <div className='pedir-llevar'>
-                    <div>
+                <div className='pedir-llevar-padre'>
+                    <div className='pedir-llevar-hijo pedir-llevar-padre'>
                         Comienza tu pedido
-                    </div>
-                    
-                    <div>
-                        <div>
-                            A domicilio
+                        <div className='pedir-llevar-hijo'>
+                            <div className='opcion'>
+                                <a href='/domicilio'> A domicilio </a>
+                            </div>
+                            <div className='opcion'>
+                                <a href='/retiro-tienda'> Retiro en tienda </a>
+                            </div>
+                            
                         </div>
-
-                        <div>
-                            Retiro en tienda
-                        </div>
                     </div>
-
-                    
                 </div>
             </div>
         </div>
