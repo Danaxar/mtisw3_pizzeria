@@ -8,12 +8,12 @@
 .portada{
     height: 100vh;
     width: 100%;
-    background-image: 
+    /* background-image: 
         linear-gradient(
             rgba(0, 0, 0, 0.8), 
             rgba(0, 0, 0, 0.8)),
         url('../../public/portada.jpg');
-    background-color: black;
+    background-color: black; */
 }
 
 .titles{
@@ -27,23 +27,23 @@
 /* Padre */
 .pedir-llevar-padre{
     /* display: flex; */
-    /* justify-content: space-between; */
-    /* align-items: center; */
+    justify-content: space-between;
+    align-items: center;
     padding: 5px 10%;
     text-align: center;
-    background-color: blue;
+    /* background-color: blue; */
 }
 
 .pedir-llevar-hijo{
-    background-color: red;
+    /* background-color: red; */
     margin: 0px auto;
 }
 
 .opcion{
-    border: 1px solid #2e518b; /*anchura, estilo y color borde*/
     padding: 30px; /*espacio alrededor texto*/
-    background-color: #2e518b; /*color botón*/
+    background-color: #11760f; /*color botón*/
     color: #ffffff; /*color texto*/
-    text-decoration: none; /*decoración texto*/
-    border-radius: 50px; /*bordes redondos*/
+    border-radius: 37px; /*bordes redondos*/
+    width: 15vw;
+    margin-top: 11px;
 }

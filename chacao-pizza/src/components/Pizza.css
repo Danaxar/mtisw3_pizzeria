@@ -1,0 +1,10 @@
+.pizza{
+    background-color: aqua;
+    width: 30%;
+    margin: 2%;
+}
+
+img{
+    height: 15vh;
+    width: auto;
+}

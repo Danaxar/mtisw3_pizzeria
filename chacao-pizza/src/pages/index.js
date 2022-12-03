@@ -1,19 +1,18 @@
 import React from 'react';
 import './index.css'
-import Navbar from '../components/Navbar';
 
 const Home = () => {
     return(
         <div className='Home'>
             <div className='portada'>
-                <Navbar/>
+                {/* <Navbar/> */}
                 <div className='titles'>
                     <div className='titulo' style={{
                         fontSize: '6vw',
                         color: 'white',
                         alignContent: 'center'
                     }}>
-                        Bienvenido a <br/>
+                        ¡Bienvenido a <br/>
                         Chacao pizza!
                     </div>
 
@@ -21,13 +20,16 @@ const Home = () => {
                         color: 'white',
                         fontSize: '2.7vw'
                     }}>
-                        tenemos los mejores ingredientes para usted
+                        Tenemos los mejores ingredientes para usted.
                     </div>
                 </div>
 
                 <div className='pedir-llevar-padre'>
                     <div className='pedir-llevar-hijo pedir-llevar-padre'>
-                        Comienza tu pedido
+                        <div style={{fontSize: '20px', margin: '5%'}}>
+                            Comienza tu pedido
+                        </div>
+                        
                         <div className='pedir-llevar-hijo'>
                             <div className='opcion'>
                                 <a href='/domicilio'> A domicilio </a>
