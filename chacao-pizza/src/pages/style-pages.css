@@ -1,0 +1,75 @@
+/* COMPRAR */
+.screen{
+    height: 100%;
+    width: auto;
+    display: flex;
+}
+
+.comprar{
+    
+    
+}
+
+.carritoElement{
+    margin: 20%;
+}
+
+/* DOMICILIO */
+
+input, button{
+    margin: '10%';
+    background-color: rgba(53, 53, 53, 0.403);
+    border-radius: 60px 30px 45px 60px;
+}
+
+/* INDEX */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
+
+*{
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+.portada{
+    height: 100vh;
+    width: 100%;
+    /* background-image: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.8), 
+            rgba(0, 0, 0, 0.8)),
+        url('../../public/portada.jpg');
+    background-color: black; */
+}
+
+.titles{
+    margin-left: 5%;
+}
+
+.subtitulo{
+    margin-top: 1%;
+}
+
+/* Padre */
+.pedir-llevar-padre{
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10%;
+    text-align: center;
+    /* background-color: blue; */
+}
+
+.pedir-llevar-hijo{
+    /* background-color: red; */
+    margin: 0px auto;
+}
+
+.opcion{
+    padding: 30px; /*espacio alrededor texto*/
+    background-color: #11760f; /*color botón*/
+    color: #ffffff; /*color texto*/
+    border-radius: 37px; /*bordes redondos*/
+    width: 15vw;
+    margin-top: 11px;
+}

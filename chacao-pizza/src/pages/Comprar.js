@@ -1,36 +1,45 @@
-import React, { useState } from "react";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Carrito } from "../components/Carrito";
 import Pizza from "../components/Pizza";
-import "./Comprar.css"
+import { DataContext } from "../context/Dataprovider";
+import "./style-pages.css";
+
 
 const Comprar = () =>{
     // Hay que arreglar el estilo
+    const value = useContext(DataContext);
+    const [productos] = value.productos
+    
+    console.log(productos);
+
     return (
         <div className="screen">
             <div className="comprar">
-                <Pizza ruta={"americana"} descripcion="alsa de Tomate, Queso, Pepperoni y Aceitunas Negras." alt="pizza americana" className="Pizza"/>
-                <Pizza ruta={"hawaiana"} descripcion="Queso mozzarella, piña y jamón." alt="pizza hawaiana"/>
+                {/* <Pizza ruta={"americana"} descripcion="alsa de Tomate, Queso, Pepperoni y Aceitunas Negras." alt="pizza americana" className="Pizza"/>
+                {/* <button onClick={setcarrito("americana")} className="carritoButton"/> */}
+                
+                {/* <Pizza ruta={"hawaiana"} descripcion="Queso mozzarella, piña y jamón." alt="pizza hawaiana"/>
                 <Pizza ruta={"mechadaBBQ"} 
                     descripcion="Doble porción de carne mechada, queso mozzarella y queso parmesano y romano" alt="pizza mechadaBBQ"/>
                 <Pizza ruta={"veganQueen"} descripcion="Champiñon, pimiento verde, aceitunas negras, Not Meat (carneplant based) y queso vegano." alt="pizza vegan queen"/>
                 <Pizza ruta={"BBQChiken"} descripcion="Queso mozzarella, pollo, tocino, cebolla, salsa bbq." alt="pizza BBQ Chiken"/>
                 <Pizza ruta={"campesina"} descripcion="Pollo, Pimiento, Champiñón" alt="pizza campesina"/>
+                <Pizza ruta={"arma-tu-pizza"} descripcion="Con los ingredientes que tu quieras" alt="arma tu pizza"/> */}
+
+                {
+                    productos.map(producto =>(
+                        <Pizza
+                            key={producto.id}
+                            ruta={producto.imagen}
+                            descripcion={producto.ingredientes}
+                            alt={producto.titulo}
+                        />
+                    ))
+                }
             </div>
             <div className="carrito">
-                <h1>Carrito</h1>
-                
-                <div className="carritoHijo">
-                    <h2>Productos</h2>
-                    <div className="carritoElement">
-                        Lista productos 
-                        {/* Aqui van los elementos  */}
-                    </div>
-                    <div className="carritoElement">
-                        total
-                    </div>
-                    <button className="carritoElement">
-                        pagar
-                    </button>
-                </div>
+                <Carrito/>
             </div>
 
         </div>

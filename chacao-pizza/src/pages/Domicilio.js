@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Domicilio.css';
+import "./style-pages.css";
 import {useNavigate} from 'react-router-dom';
 
 
