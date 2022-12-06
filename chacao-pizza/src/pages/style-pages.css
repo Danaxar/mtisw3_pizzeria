@@ -1,20 +1,19 @@
-/* COMPRAR */
+/* -------------------- COMPRAR -------------------- */
 .screen{
     height: 100%;
     width: auto;
     display: flex;
+    margin-right: 25%;
 }
 
 .comprar{
-    
-    
+    display: flex;
+    flex-wrap: wrap;
+    border-color: white;
 }
 
-.carritoElement{
-    margin: 20%;
-}
 
-/* DOMICILIO */
+/* -------------------- DOMICILIO -------------------- */
 
 input, button{
     margin: '10%';
@@ -22,7 +21,15 @@ input, button{
     border-radius: 60px 30px 45px 60px;
 }
 
-/* INDEX */
+.opcion a{
+    text-decoration: none;
+}
+
+.opcion:hover{
+    background-color: #22d81f;
+}
+
+/* -------------------- INDEX -------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
@@ -50,7 +57,6 @@ input, button{
     margin-top: 1%;
 }
 
-/* Padre */
 .pedir-llevar-padre{
     /* display: flex; */
     justify-content: space-between;
@@ -63,6 +69,8 @@ input, button{
 .pedir-llevar-hijo{
     /* background-color: red; */
     margin: 0px auto;
+    align-items: center;
+    
 }
 
 .opcion{
@@ -72,4 +80,33 @@ input, button{
     border-radius: 37px; /*bordes redondos*/
     width: 15vw;
     margin-top: 11px;
+    align-items: center;
+}
+
+/* .carrito{
+    position: fixed; 
+    margin-left: 65%;
+    width: 30%;
+    height: auto;
+    background-color: red;
+    border-radius: 5%;
+} */
+
+
+.seleccion{
+    margin-left: 5%;
+    margin-top: 1%;
+    border-radius: 5%;
+    background-color: rgb(226, 84, 20, 0.8);
+}
+
+.opcionesPizza{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.seleccionHijo{
+    margin: 5%;
+    align-items: center;
 }

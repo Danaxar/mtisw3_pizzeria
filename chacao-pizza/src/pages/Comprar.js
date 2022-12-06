@@ -1,53 +1,101 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useState } from "react";
+//import { useNavigate } from "react-router-dom";
 import { Carrito } from "../components/Carrito";
 import Pizza from "../components/Pizza";
 import { DataContext } from "../context/Dataprovider";
 import "./style-pages.css";
 
+const Comprar = () => {
+  const value = useContext(DataContext);
 
-const Comprar = () =>{
-    // Hay que arreglar el estilo
-    const value = useContext(DataContext);
-    const [productos] = value.productos
-    
-    console.log(productos);
+  // Importar el repositorio de productos
+  const [productos] = value.productos;
+  console.log("Productos", productos);
 
-    return (
-        <div className="screen">
-            <div className="comprar">
-                {/* <Pizza ruta={"americana"} descripcion="alsa de Tomate, Queso, Pepperoni y Aceitunas Negras." alt="pizza americana" className="Pizza"/>
-                {/* <button onClick={setcarrito("americana")} className="carritoButton"/> */}
-                
-                {/* <Pizza ruta={"hawaiana"} descripcion="Queso mozzarella, piña y jamón." alt="pizza hawaiana"/>
-                <Pizza ruta={"mechadaBBQ"} 
-                    descripcion="Doble porción de carne mechada, queso mozzarella y queso parmesano y romano" alt="pizza mechadaBBQ"/>
-                <Pizza ruta={"veganQueen"} descripcion="Champiñon, pimiento verde, aceitunas negras, Not Meat (carneplant based) y queso vegano." alt="pizza vegan queen"/>
-                <Pizza ruta={"BBQChiken"} descripcion="Queso mozzarella, pollo, tocino, cebolla, salsa bbq." alt="pizza BBQ Chiken"/>
-                <Pizza ruta={"campesina"} descripcion="Pollo, Pimiento, Champiñón" alt="pizza campesina"/>
-                <Pizza ruta={"arma-tu-pizza"} descripcion="Con los ingredientes que tu quieras" alt="arma tu pizza"/> */}
+  // Importar el carrito
+  const [carrito, setCarrito] = value.carrito;
+  console.log("Carrito", carrito);
 
-                {
-                    productos.map(producto =>(
-                        <Pizza
-                            key={producto.id}
-                            ruta={producto.imagen}
-                            descripcion={producto.ingredientes}
-                            alt={producto.titulo}
-                        />
-                    ))
-                }
+  // Use effect aprovecha las recargas del navegador
+
+  return (
+    <div className="screen">
+      <div className="comprar">
+        {
+          // Aqui muestra todos los productos dentro de Data.js
+          productos.map(
+            (
+              producto // Productos es una lista
+            ) => (
+              // Componente Pizza
+              <Pizza
+                id={producto.id}
+                key={producto.id}
+                ruta={producto.imagen}
+                descripcion={producto.ingredientes}
+                alt={producto.titulo}
+                precio={producto.precio}
+              />
+            )
+          )
+        }
+
+        <a
+          href="/personalizada"
+          style={{
+            textDecoration: "none",
+            backgroundColor: "rgb(50,150,110, 0.8)",
+            width: "20%",
+            margin: "2%",
+            marginLeft: "5%",
+            borderRadius: "4%",
+          }}
+        >
+          <div className="pizzaPersonalizada">
+            <div
+              className="ruta"
+              style={{ fontSize: "1.9vw", marginLeft: "20%" }}
+            >
+              Pizza personalizada
             </div>
-            <div className="carrito">
-                <Carrito/>
-            </div>
 
-        </div>
-    );
-}
+            <img
+              src={require("../components/pizzas/arma-tu-pizza.jpg")}
+              alt="arma-tu-pizza"
+            />
+
+            <div className="descripcionPizza">
+              Selecciona los ingredientes de tu preferencia.
+              <br />
+              <br />
+              click aqui
+            </div>
+            <br />
+
+            <div className="precio">{"$20000clp"}</div>
+          </div>
+        </a>
+      </div>
+
+      <div
+        className="carrito"
+        style={{
+          position: "fixed",
+          marginLeft: "65%",
+          width: "30%",
+          height: "auto",
+          backgroundColor: "rgb(182, 6, 9, 0.8)",
+          borderRadius: "5%",
+        }}
+      >
+        <Carrito />
+      </div>
+    </div>
+  );
+};
 
 export default Comprar;
-
 
 /**
  * const Comprar = () =>{

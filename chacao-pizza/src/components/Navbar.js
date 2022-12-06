@@ -5,7 +5,11 @@ const Navbar = () => {
     return (
         <header className='header'>
             <div className='logo'>
-                <a href='/'><img src='logonav2.webp'/></a>
+                <a href='/'>
+                    <img src='logo250.png' alt="Logo" style={{
+                        height: '95%'
+                    }}/>
+                </a>
             </div>
             <nav>
                 <ul className='nav-links'>

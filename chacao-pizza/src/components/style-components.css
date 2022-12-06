@@ -81,14 +81,72 @@
 */
 
 /* ---------------------------PIZZA COMPONENT ------------------------------------------ */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 .pizza{
     background-color: rgb(50,150,110, 0.8);
-    width: 30%;
+    width: 20%;
     margin: 2%;
+    margin-left: 5%;
     border-radius: 4%;
 }
 
 img{
-    height: 15vh;
-    width: auto;
+    /* height: 15vh;
+    width: auto; */
+    width: 100%;
+    height: auto;
+
+}
+
+.descripcionPizza, .ruta{
+    font-size: 1.3vw;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+/* -------------------- Carro de compras -------------------- */
+.carrito_item box-icon{
+    fill: #11760F;
+}
+
+.carrito_center{
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid;
+    border-color: black;
+}
+
+.carrito_item{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr;
+    width: 80%;
+    margin: 2rem auto;
+    box-shadow: 0 1px 10px #08a05c;
+    border-radius: 5px;
+}
+
+.carrito_item img{
+    width: 10vw;
+    height: auto;
+}
+
+.carrito_item h3{
+    margin-top: 1.5rem;
+    font-size: 1rem;
+}
+
+/* .carrito_item .price */
+
+.carrito_item .remove_item boxicon{
+    fill: black;
+    background-color: aqua;
+}
+
+.carrito_footer{
+    margin: 15%;
+}
+
+.carrito_footer button{
+    margin-top: 10%;
+    width: 5rem;
 }
