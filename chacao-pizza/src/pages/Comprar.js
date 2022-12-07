@@ -57,7 +57,7 @@ const Comprar = () => {
             </div>
 
             <div className="descripcionPizza">
-              Selecciona los ingredientes de tu preferencia.
+              Click aqui para configurar tu pizza personalizada.
               <br />
               <br />
               click aqui
@@ -74,7 +74,7 @@ const Comprar = () => {
           marginLeft: "65%",
           width: "30%",
           height: "auto",
-          backgroundColor: "rgb(182, 6, 9, 0.8)",
+          backgroundColor: "rgb(200, 6, 9, 0.8)",
           borderRadius: "5%",
         }}
       >

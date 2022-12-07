@@ -10,6 +10,9 @@ export const Carrito = () => {
   // Importar el carrito
   const [carrito, setCarrito] = value.carrito;
 
+  // Importar el total
+  const [total, setTotal] = value.total;
+
   const resta = (id) => {
     carrito.forEach((item) => {
       if (item.id === id) {
@@ -49,7 +52,7 @@ export const Carrito = () => {
     <div className="carritos">
       <div className="carrito">
         <div className="carrito_close">{/* icono de cerrar */}</div>
-        <h2>Carro de compras</h2>
+        <h2 style={{ fontSize: "3vw" }}>Carro de compras</h2>
         <div className="carrito_center">
           {carrito.length === 0 ? (
             <h2
@@ -66,14 +69,24 @@ export const Carrito = () => {
               {
                 // Variable = producto
                 carrito.map((producto) => (
-                  <div className="carrito_item" key={producto.id}>
-                    <img
+                  <div
+                    className="carrito_item"
+                    key={producto.id}
+                    style={{
+                      backgroundImage:
+                        "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),url('" +
+                        producto.imagen +
+                        ".jpg')",
+                      // backgroundColor: "black",
+                    }}
+                  >
+                    {/* <img
                       src={require("./pizzas/" + producto.imagen + ".jpg")}
                       alt="item"
-                    />
+                    /> */}
                     <div>
                       <h3>{producto.titulo}</h3>
-                      <p className="price">{producto.precio} </p>
+                      <p className="price">{"$" + producto.precio} </p>
                     </div>
                     <div>
                       <box-icon
@@ -101,7 +114,8 @@ export const Carrito = () => {
           )}
         </div>
         <div className="carrito_footer">
-          <h3>Total $123123</h3>
+          {console.log("total", total)}
+          <h3>Total ${total}</h3>
           <button className="btn">Pagar</button>
         </div>
       </div>

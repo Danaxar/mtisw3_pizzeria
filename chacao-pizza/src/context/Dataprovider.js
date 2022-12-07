@@ -8,8 +8,9 @@ export const DataProvider = (props) => {
   // Variables globales
   const [productos, setProductos] = useState([]); // Base de datos de pizzas
   const [carrito, setCarrito] = useState([]); // Productos que se quieren comprar
+  const [total, setTotal] = useState(0); // Se inicializa en 0
 
-  const [ubicacion, setUbicacion] = useState([]);
+  const [ubicacion, setUbicacion] = useState([]); // Aqui va la ubicación del domicilio // Lista de length = 4 (ciudad, comuna, calle, numero)
   const [local, setLocal] = useState(""); // Aqui va el id del local
 
   // Importación de funciones
@@ -24,6 +25,32 @@ export const DataProvider = (props) => {
     }
     setProductos(producto);
   }, []);
+
+  useEffect(() => {
+    // Leer
+    const dataCarrito = JSON.parse(localStorage.getItem("dataCarrito"));
+    if (dataCarrito) {
+      setCarrito(dataCarrito); // Si ya existe algo previamente, se guarda
+    }
+  }, []);
+
+  useEffect(() => {
+    // Escribir
+    // localStorage.setItem() // Guarda dentro del local Store
+    localStorage.setItem("dataCarrito", JSON.stringify(carrito));
+  }, [carrito]); // Se ejecuta cada vez que haya un cambio en el carrito
+
+  useEffect(() => {
+    const getTotal = () => {
+      // Función para calcular el total
+      const res = carrito.reduce((prev, item) => {
+        return prev + item.price * item.cantidad;
+      }, 0);
+      setTotal(res); // Asigno el total guardado en res
+    };
+
+    getTotal(); // Llamo a la función que acabo de crear
+  }, [carrito]);
 
   // Guardará datos al carro
   const addCarrito = (id) => {
@@ -59,6 +86,7 @@ export const DataProvider = (props) => {
     addCarrito: addCarrito, // Hacer pública la función
     carrito: [carrito, setCarrito], // Hacer pública la variable carrito
     addCustomPizza: addCustomPizza,
+    total: [total, setTotal],
   };
 
   return (

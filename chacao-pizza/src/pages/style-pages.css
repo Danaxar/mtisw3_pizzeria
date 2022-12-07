@@ -109,3 +109,10 @@ input, button{
     width: 20%;
     height: 1em;
 }
+
+
+/* comprar */
+
+.pizzaPersonalizada .descripcionPizza{
+    font-size: 2vw;
+}
