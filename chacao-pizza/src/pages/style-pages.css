@@ -83,15 +83,6 @@ input, button{
     align-items: center;
 }
 
-/* .carrito{
-    position: fixed; 
-    margin-left: 65%;
-    width: 30%;
-    height: auto;
-    background-color: red;
-    border-radius: 5%;
-} */
-
 
 .seleccion{
     margin-left: 5%;
@@ -109,4 +100,12 @@ input, button{
 .seleccionHijo{
     margin: 5%;
     align-items: center;
+}
+
+/* ---- Seleccionar ingredientes ---- */
+
+.opcionesPizza input[type=radio]{
+    border: 0px;
+    width: 20%;
+    height: 1em;
 }

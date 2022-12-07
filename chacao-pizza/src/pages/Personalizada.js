@@ -1,9 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { DataContext } from "../context/Dataprovider";
+import "./style-pages.css";
 
 const Personalizada = () => {
   const value = useContext(DataContext); // Ocupar las variables globales
-  const addCustomPizza = value.addCustomPizza; // Para acceder a la FUNCION addCarrito
+  const addCarrito = value.addCarrito; // Para acceder a la FUNCION addCarrito
+  const [items] = value.productos; // Importar el repositorio de productos
+  const navigate = useNavigate();
+
+  // El item de id=7 es la pizza personalizada
+  // La idea es agregar dentro de su atributo "ingredientes"
+  // los ingredientes que tenga
 
   // Datos
   const ingredientesCarnes = [
@@ -40,21 +48,35 @@ const Personalizada = () => {
   const [tamanoPizzaEstado, setTamanoPizzaEstado] = useState([]);
 
   const crearPizzaPersonalizada = () => {
-    const salida = {
-      ingredientesCarnes: ingredientesCarnesEstado,
-      ingredientesVegetales: ingredientesVegetalesEstado,
-      tipoQueso: tipoQuesoEstado,
-      cantidadQueso: cantidadQuesoEstado,
-      tipoMasa: tipoMasaEstado,
-      tamanoPizza: tamanoPizzaEstado,
-    };
-    console.log(salida);
-    addCustomPizza(salida);
+    console.log("Creando pizza personalizada...");
+    const salida = [
+      ingredientesCarnesEstado,
+      ingredientesVegetalesEstado,
+      tipoQuesoEstado,
+      cantidadQuesoEstado,
+      tipoMasaEstado,
+      tamanoPizzaEstado,
+    ].map((element) => element + ", ");
+
+    console.log("Características: ", salida); // * BIEN
+
+    // Obtener objeto pizza personalizada
+    const pizzaPersonalizada = items.filter((element) => {
+      return element.id === 7;
+    })[0];
+
+    // Asignar ingredientes
+    pizzaPersonalizada.ingredientes = salida;
+
+    console.log("Pizza personalizada: ", pizzaPersonalizada);
+    // addCustomPizza(pizzaPersonalizada);
+    addCarrito(pizzaPersonalizada);
+    navigate("/comprar");
   };
 
   return (
     <div>
-      <h1>Arma tu pizza</h1>
+      <h1 style={{ marginLeft: "35%", fontSize: "3vw" }}>Arma tu pizza</h1>
       <div className="opcionesPizza">
         <div className="Carnes seleccion">
           <div className="seleccionHijo">
@@ -177,11 +199,17 @@ const Personalizada = () => {
         </div>
       </div>
 
-      <div>
-        <button onClick={() => crearPizzaPersonalizada()}>
-          Añadir al carrito
-        </button>
-      </div>
+      <button
+        onClick={() => crearPizzaPersonalizada()}
+        style={{
+          width: "30vw",
+          margin: "5%",
+          backgroundColor: "green",
+          height: "15vh",
+        }}
+      >
+        Añadir al carrito
+      </button>
     </div>
   );
 };

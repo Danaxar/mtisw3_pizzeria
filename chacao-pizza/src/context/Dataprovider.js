@@ -5,10 +5,15 @@ import Data from "./Data";
 export const DataContext = createContext();
 
 export const DataProvider = (props) => {
-  const [productos, setProductos] = useState([]);
-  const [carrito, setCarrito] = useState([]);
+  // Variables globales
+  const [productos, setProductos] = useState([]); // Base de datos de pizzas
+  const [carrito, setCarrito] = useState([]); // Productos que se quieren comprar
 
-  const navigate = useNavigate();
+  const [ubicacion, setUbicacion] = useState([]);
+  const [local, setLocal] = useState(""); // Aqui va el id del local
+
+  // Importación de funciones
+  const navigate = useNavigate(); // Permite hacer una redirección
 
   useEffect(() => {
     const producto = Data.items;
@@ -28,10 +33,13 @@ export const DataProvider = (props) => {
     });
 
     if (check) {
+      // Filtrar por id
       const data = productos.filter((producto) => {
         return producto.id === id;
-      });
-      setCarrito([...carrito, ...data]);
+      }); // -> Retorna un elemento en data
+      const salida = [...carrito, ...data];
+      console.log("addCarrito (Dataprovider: salida", salida);
+      setCarrito(salida); // Se guarda el elemento en data
     } else {
       alert("El producto ya está en su carrito");
     }
@@ -41,8 +49,9 @@ export const DataProvider = (props) => {
   const addCustomPizza = (object) => {
     setCarrito([...carrito, object]);
     console.log("addCustomPizzaORIGINAL: ", [...carrito, object]);
+    console.log("carrito original final: ", carrito);
     alert("La pizza ha sido añadida con exito");
-    navigate("/comprar");
+    // navigate("/comprar");
   };
 
   const value = {

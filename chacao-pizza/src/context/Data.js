@@ -12,6 +12,7 @@ const Data = {
       ],
       precio: 15990,
       imagen: "americana", // Nombre de la imagen sin extension
+      cantidad: 0,
     },
     {
       id: 2,
@@ -25,6 +26,7 @@ const Data = {
       ],
       precio: 15990,
       imagen: "BBQChiken",
+      cantidad: 0,
     },
     {
       id: 3,
@@ -32,6 +34,7 @@ const Data = {
       ingredientes: ["Pollo, ", "Pimiento, ", "Champiñón"],
       precio: 15990,
       imagen: "campesina",
+      cantidad: 0,
     },
     {
       id: 4,
@@ -39,6 +42,7 @@ const Data = {
       ingredientes: ["Queso mozzarella, ", "Piña, ", "Jamón"],
       precio: 15990,
       imagen: "hawaiana",
+      cantidad: 0,
     },
     {
       id: 5,
@@ -50,6 +54,7 @@ const Data = {
       ],
       precio: 15990,
       imagen: "mechadaBBQ",
+      cantidad: 0,
     },
     {
       id: 6,
@@ -62,16 +67,25 @@ const Data = {
       ],
       precio: 15990,
       imagen: "veganQueen",
+      cantidad: 0,
     },
-    // ,{
-    //     id: 7,
-    //     titulo: "Pizza personalizada",
-    //     ingredientes: [
-    //         "A eleccion"
-    //     ],
-    //     precio: 15990,
-    //     imagen: "arma-tu-pizza"
-    // },
+    {
+      id: 7,
+      titulo: "Pizza personalizada",
+      ingredientes: [],
+      precio: 15990,
+      imagen: "arma-tu-pizza",
+      cantidad: 0,
+    },
+  ],
+  especial: [],
+  locales: [
+    {
+      id: 1,
+      nombre: "Local maipú",
+      ubicacion: ["Santiago", "Maipú", "Del rey", "2038"],
+      imagen: "",
+    },
   ],
 };
 

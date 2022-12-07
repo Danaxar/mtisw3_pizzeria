@@ -14,7 +14,7 @@ const Comprar = () => {
   console.log("Productos", productos);
 
   // Importar el carrito
-  const [carrito, setCarrito] = value.carrito;
+  const [carrito] = value.carrito;
   console.log("Carrito", carrito);
 
   // Use effect aprovecha las recargas del navegador
@@ -24,21 +24,17 @@ const Comprar = () => {
       <div className="comprar">
         {
           // Aqui muestra todos los productos dentro de Data.js
-          productos.map(
-            (
-              producto // Productos es una lista
-            ) => (
-              // Componente Pizza
-              <Pizza
-                id={producto.id}
-                key={producto.id}
-                ruta={producto.imagen}
-                descripcion={producto.ingredientes}
-                alt={producto.titulo}
-                precio={producto.precio}
-              />
-            )
-          )
+          productos.map((producto) => (
+            // Componente Pizza
+            <Pizza
+              id={producto.id}
+              key={producto.id}
+              ruta={producto.imagen}
+              descripcion={producto.ingredientes}
+              alt={producto.titulo}
+              precio={producto.precio}
+            />
+          ))
         }
 
         <a
@@ -60,11 +56,6 @@ const Comprar = () => {
               Pizza personalizada
             </div>
 
-            <img
-              src={require("../components/pizzas/arma-tu-pizza.jpg")}
-              alt="arma-tu-pizza"
-            />
-
             <div className="descripcionPizza">
               Selecciona los ingredientes de tu preferencia.
               <br />
@@ -72,8 +63,6 @@ const Comprar = () => {
               click aqui
             </div>
             <br />
-
-            <div className="precio">{"$20000clp"}</div>
           </div>
         </a>
       </div>
@@ -96,30 +85,3 @@ const Comprar = () => {
 };
 
 export default Comprar;
-
-/**
- * const Comprar = () =>{
-    const [pizza, setPizza] = useState("hawaiana"); // Valor default
-    const [contador, setContador] = useState(0);
-    
-    return (
-        <div>
-            <div className="comprar">
-                <Pizza ruta={pizza} descripcion="hola" alt="pizza hawaiana"/>
-
-                <button onClick={() => setPizza("americana")}>
-                    1
-                </button>
-                <button onClick={() => setPizza("hawaiana")}>
-                    2
-                </button>
-                <button onClick={() => setContador(contador+1)}>
-                    {contador}
-                </button>
-            </div>
-            <div className="carrito">
-            </div>
-        </div>
-    );
-}
- */

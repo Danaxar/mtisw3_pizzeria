@@ -110,10 +110,12 @@ img{
 }
 
 .carrito_center{
-    width: 90%;
+    width: 100%;
+    height: 250px;
     margin: 0 auto;
     border: 1px solid;
     border-color: black;
+    overflow: scroll;
 }
 
 .carrito_item{
