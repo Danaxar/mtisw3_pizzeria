@@ -2,22 +2,24 @@ import React, { useState, useEffect, createContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Data from "./Data";
 
+// Esto es lo que hay que importar usando el useContext()
+// Ej: const value = useContext(DataContext)
 export const DataContext = createContext();
 
+//! El DataProvider no se importa!
 export const DataProvider = (props) => {
   // Variables globales
   const [productos, setProductos] = useState([]); // Base de datos de pizzas
   const [carrito, setCarrito] = useState([]); // Productos que se quieren comprar
-  const [total, setTotal] = useState(0); // Se inicializa en 0
+  const [total, setTotal] = useState(0); // Total del precio del carro de compras
 
   const [ubicacion, setUbicacion] = useState([]); // Aqui va la ubicación del domicilio // Lista de length = 4 (ciudad, comuna, calle, numero)
-  const [local, setLocal] = useState(""); // Aqui va el id del local
+  const [locales, setLocales] = useState([]); // Aqui va el id del local
 
-  // Importación de funciones
-  const navigate = useNavigate(); // Permite hacer una redirección
-
+  // Cargar la base de datos de productos a la variable de estado producto
   useEffect(() => {
-    const producto = Data.items;
+    console.log("Cargando items...");
+    const producto = Data.items; // Asi de simple
     if (producto) {
       setProductos(producto);
     } else {
@@ -26,34 +28,39 @@ export const DataProvider = (props) => {
     setProductos(producto);
   }, []);
 
+  // ------------------- CARRO ------------------
+  // Leer la memoria y guardar en el carro
   useEffect(() => {
+    // console.log("Leyendo memoria y cargando el carro...");
     // Leer
-    const dataCarrito = JSON.parse(localStorage.getItem("dataCarrito"));
-    if (dataCarrito) {
-      setCarrito(dataCarrito); // Si ya existe algo previamente, se guarda
-    }
+    const dataCarrito = JSON.parse(localStorage.getItem("carrito"));
+    // Agarra el texto almacenado en la variable dataCarrito
+    // Y luego lo parchea a formato json (objeto) y se guarda en dataCarrito
+    setCarrito(dataCarrito); // Si ya existe algo previamente, guardalo en el carro
   }, []);
 
+  // Leer el carro y guardar en la memoria
   useEffect(() => {
-    // Escribir
-    // localStorage.setItem() // Guarda dentro del local Store
-    localStorage.setItem("dataCarrito", JSON.stringify(carrito));
+    // console.log("Leyendo el carro y escribiendo en memoria...");
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+    // Guarda en la variable dataCarrito la información parcheada de carrito (se convierte a string)
   }, [carrito]); // Se ejecuta cada vez que haya un cambio en el carrito
 
+  // Calcular el monto total del carro
   useEffect(() => {
     const getTotal = () => {
       // Función para calcular el total
       const res = carrito.reduce((prev, item) => {
-        return prev + item.price * item.cantidad;
+        return prev + item.precio * item.cantidad;
       }, 0);
       setTotal(res); // Asigno el total guardado en res
     };
-
     getTotal(); // Llamo a la función que acabo de crear
   }, [carrito]);
 
   // Guardará datos al carro
   const addCarrito = (id) => {
+    console.log("Añadiendo al carro...");
     // Guarda datos a ese carrito
     const check = carrito.every((item) => {
       return item.id !== id;
@@ -72,21 +79,37 @@ export const DataProvider = (props) => {
     }
   };
 
-  // Función que añade una pizza personalizada al carrito
-  const addCustomPizza = (object) => {
-    setCarrito([...carrito, object]);
-    console.log("addCustomPizzaORIGINAL: ", [...carrito, object]);
-    console.log("carrito original final: ", carrito);
-    alert("La pizza ha sido añadida con exito");
-    // navigate("/comprar");
-  };
+  // Cargar locales
+  useEffect(() => {
+    console.log("Cargando locales de retiro...");
+    const localess = Data.locales;
+    setLocales(localess);
+  }, []);
 
+  // ------------------- Ubicacion ------------------
+  // Leer variable ubicacion y escribirla en memoria cada vez que
+  // Se actualiza la variable ubicación
+  useEffect(() => {
+    const ubicacionJSON = JSON.parse(localStorage.getItem("ubicacion"));
+    setUbicacion(ubicacionJSON);
+  }, []);
+
+  useEffect(() => {
+    console.log("Leyendo <ubicacion> y escribiendo en memoria...");
+    localStorage.setItem("ubicacion", JSON.stringify(ubicacion));
+  }, [ubicacion]);
+
+  // Leer memoria y escribir ubicacion
+
+  // -------------- EXPORTAR ------------------
   const value = {
     productos: [productos],
     addCarrito: addCarrito, // Hacer pública la función
     carrito: [carrito, setCarrito], // Hacer pública la variable carrito
-    addCustomPizza: addCustomPizza,
     total: [total, setTotal],
+    locales: [locales, setLocales],
+    setUbicacion: setUbicacion,
+    ubicacion: [ubicacion, setUbicacion],
   };
 
   return (

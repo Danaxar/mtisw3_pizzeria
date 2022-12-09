@@ -11,13 +11,6 @@ const Comprar = () => {
 
   // Importar el repositorio de productos
   const [productos] = value.productos;
-  console.log("Productos", productos);
-
-  // Importar el carrito
-  const [carrito] = value.carrito;
-  console.log("Carrito", carrito);
-
-  // Use effect aprovecha las recargas del navegador
 
   return (
     <div className="screen">
@@ -25,7 +18,6 @@ const Comprar = () => {
         {
           // Aqui muestra todos los productos dentro de Data.js
           productos.map((producto) => (
-            // Componente Pizza
             <Pizza
               id={producto.id}
               key={producto.id}
@@ -36,6 +28,27 @@ const Comprar = () => {
             />
           ))
         }
+        <a
+          href="/agregado"
+          style={{
+            textDecoration: "none",
+            backgroundColor: "rgb(50,150,110, 0.8)",
+            width: "20%",
+            margin: "2%",
+            marginLeft: "5%",
+            borderRadius: "4%",
+          }}
+        >
+          <div className="agregados">
+            <div className="descripcionPizza">
+              Click aqui para seleccionar tus agregados
+              <br />
+              <br />
+              Bebidas, acompañamientos, salsas, etc.
+            </div>
+            <br />
+          </div>
+        </a>
 
         <a
           href="/personalizada"
@@ -49,18 +62,8 @@ const Comprar = () => {
           }}
         >
           <div className="pizzaPersonalizada">
-            <div
-              className="ruta"
-              style={{ fontSize: "1.9vw", marginLeft: "20%" }}
-            >
-              Pizza personalizada
-            </div>
-
             <div className="descripcionPizza">
               Click aqui para configurar tu pizza personalizada.
-              <br />
-              <br />
-              click aqui
             </div>
             <br />
           </div>
@@ -79,6 +82,9 @@ const Comprar = () => {
         }}
       >
         <Carrito />
+        <a href="/pagar">
+          <button className="btn">Pagar</button>
+        </a>
       </div>
     </div>
   );

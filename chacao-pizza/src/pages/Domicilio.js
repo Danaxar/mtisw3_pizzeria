@@ -1,69 +1,135 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
 import "./style-pages.css";
-import {useNavigate} from 'react-router-dom';
-
+import { useNavigate } from "react-router-dom";
+import { DataContext, DataProvider } from "../context/Dataprovider";
 
 const Domicilio = () => {
-    const [region, setRegion] = useState("")
-    const [comuna, setComuna] = useState("")
-    const [calle, setCalle] = useState("")
-    const [numero, setNumero] = useState("")
-    const [numeroDpto, setNumeroDpto] = useState("")
+  // importar variables globales
+  const value = useContext(DataContext);
+  const [ubicacion, setUbicacion] = value.ubicacion;
 
-    const navigate = useNavigate();
+  // Variables de estado del form
+  const [region, setRegion] = useState("");
+  const [comuna, setComuna] = useState("");
+  const [calle, setCalle] = useState("");
+  const [numero, setNumero] = useState("");
+  const [numeroDpto, setNumeroDpto] = useState("");
 
-    const enviarForm = () => {
-        // Enviar los datos
-        // Redirigir a la página siguiente
-        let form_data = new FormData();
-        form_data.append("region", region);
-        form_data.append("comuna", comuna);
-        form_data.append("calle", calle);
-        form_data.append("numero", numero);
-        form_data.append("numeroDpto", numeroDpto);
-        console.log(form_data);
+  // Función para actualizar la variable global ubicacion
+  const enviarUbicacion = () => {
+    const salida = [region, comuna, calle, numero, numeroDpto];
+    setUbicacion(salida);
+  };
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (ubicacion) {
+      if (
+        !window.confirm("Ya tienes una ubicacion guardada\n¿Deseas cambiarla?")
+      ) {
         navigate("/comprar");
-        
+      }
     }
+  }, []);
 
-    const redirect = () => {
-        window.location.href = 'http://localhost:3000/comprar';
-    }
-
-    return (
-        <div>
-            <div >
-                <form onSubmit={enviarForm}>
-                    <div>
-                        <label for="region">Region</label>
-                        <input type={"text"} name="Region" onChange={(e) => setRegion(e.target.value)}></input><br/>
-                    </div>
-                    <div>
-                        <label for="region">Comuna</label>
-                        <input type={"text"} name="Comuna" onChange={(e) => setComuna(e.target.value)}></input><br/>
-                    </div>    
-                    <div>
-                        <label for="region">Calle</label>
-                        <input type={"text"} name="Calle" onChange={(e) => setCalle(e.target.value)}></input><br/>
-                    </div>    
-                    <div>
-                        <label for="region">Numero</label>
-                        <input type={"text"} name="Numero" onChange={(e) => setNumero(e.target.value)}></input><br/>
-                    </div>
-                    <div>
-                        <label for="region">NumeroDpto</label>
-                        <input type={"text"} name="NumeroDpto" onChange={(e) => setNumeroDpto(e.target.value)}></input><br/>
-                    </div>
-                        <input type={"submit"} name="enviar" style={{color: ''}}></input><br/>
-                </form>
-                <div>
-                    <button onClick={redirect} style={{backgroundColor: 'rgb(0,150,0,0.403)'}}>
-                        continuar
-                    </button>
-                </div>
-            </div>
+  return (
+    <div className="screen_domicilio">
+      <div className="formDomicilio">
+        <h1>Ingrese su ubicación</h1>
+        <div className="domicilioInput">
+          <label for="region">Region</label>
+          <input
+            type={"text"}
+            name="Region"
+            onChange={(e) => setRegion(e.target.value)}
+          />
+          <br />
         </div>
-    );
-}
+
+        <div className="domicilioInput">
+          <label for="Comuna">Comuna</label>
+          <input
+            type={"text"}
+            name="Comuna"
+            onChange={(e) => setComuna(e.target.value)}
+          />
+          <br />
+        </div>
+
+        <div className="domicilioInput">
+          <label for="Calle">Calle</label>
+          <input
+            type={"text"}
+            name="Calle"
+            onChange={(e) => setCalle(e.target.value)}
+          />
+          <br />
+        </div>
+
+        <div className="domicilioInput">
+          <label for="Numero">Numero</label>
+          <input
+            type={"text"}
+            name="Numero"
+            onChange={(e) => setNumero(e.target.value)}
+          />
+          <br />
+        </div>
+
+        <div className="domicilioInput">
+          <label for="NumeroDpto">NumeroDpto</label>
+          <input
+            type={"text"}
+            name="NumeroDpto"
+            onChange={(e) => setNumeroDpto(e.target.value)}
+          />
+          <br />
+        </div>
+
+        <div className="enviarUbicacion">
+          <input
+            type={"submit"}
+            name="enviar"
+            style={{ color: "" }}
+            onClick={() => {
+              enviarUbicacion();
+            }}
+          />
+          <br />
+        </div>
+      </div>
+      <div className="listarDomicilio">
+        <h2>Sus datos:</h2>
+        <table>
+          <tr>
+            <td>Ciudad</td>
+            <td>{ubicacion[0]}</td>
+          </tr>
+          <tr>
+            <td>Comuna</td>
+            <td>{ubicacion[1]}</td>
+          </tr>
+          <tr>
+            <td>Calle</td>
+            <td>{ubicacion[2]}</td>
+          </tr>
+          <tr>
+            <td>numero</td>
+            <td>{ubicacion[3]}</td>
+          </tr>
+          <tr>
+            <td>Numero Dpto</td>
+            <td>{ubicacion[4]}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div className="domicilio_continuar">
+        <button onClick={() => navigate("/comprar")}>Continuar</button>
+      </div>
+    </div>
+  );
+};
 
 export default Domicilio;

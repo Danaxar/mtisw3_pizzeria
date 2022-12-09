@@ -11,6 +11,8 @@ import Pagar from "./pages/Pagar";
 import { DataProvider } from "./context/Dataprovider";
 import "boxicons"; //!
 import Personalizada from "./pages/Personalizada";
+import Agregado from "./pages/Agregados";
+import RetiroTienda from "./pages/RetiroTienda";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
               <Route path="/comprar" element={<Comprar />} exact />
               <Route path="/pagar" element={<Pagar />} exact />
               <Route path="/personalizada" element={<Personalizada />} exact />
+              <Route path="/agregado" element={<Agregado />} exact />
+              <Route path="/retiro-tienda" element={<RetiroTienda />} exact />
             </Routes>
           </div>
         </Layout>

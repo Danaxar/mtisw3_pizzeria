@@ -116,3 +116,114 @@ input, button{
 .pizzaPersonalizada .descripcionPizza{
     font-size: 2vw;
 }
+
+/* Pagar */
+.screen_pago{
+    display: flex;
+}
+
+.lista_productos_pago{
+    width: 40%;
+    background-color: rgb(226, 84, 20, 0.8);
+    border-radius: 2%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+.datosCompra{
+    background-color: red;
+    border-radius: 2%;
+}
+
+.datosCompra-hijo{
+    background-color: rgb(226, 84, 20, 0.8);
+    border-radius: 2%;
+}
+
+.metodos_pago{
+    background-color: aqua;
+}
+
+.propina{
+    background-color: #11760f;
+}
+
+.comprobante{
+    background-color: blue;
+}
+
+/* ---------------------- DOMICILIO ---------------------- */
+
+.screen_domicilio{
+    display: flex;
+    height: 85vh;
+    margin-top: 5%;
+}
+
+.formDomicilio{
+    background-color: #E25414;
+    margin-left: 10%;
+    margin-right: 15%;
+    height: 55vh;
+    width: 30vw;
+    border-radius: 5%;
+    text-align: center;
+}
+
+.domicilioInput{
+    margin-top: 7%;
+}
+
+.domicilioInput input{
+    margin-left: 5%;
+}
+
+.enviarUbicacion input{
+    margin-top: 10%;
+    background-color: #11760f;
+    width: 50%;
+    font-size: 120%;
+}
+
+.listarDomicilio{
+    background-color: #B60609;
+    border-radius: 5%;
+    width: 22vw;
+    text-align: center;
+    align-content: center;
+    height: 50vh; 
+}
+
+.listarDomicilio table{
+    margin-top: 10%;
+    margin-left: 5%;
+    width: 90%;   
+    height: 75%;
+}
+
+.listarDomicilio table, th, td{
+    border: 1px solid;
+}
+
+.domicilio_continuar{
+    margin-top: 30%;
+    margin-left: 50%;
+    position: fixed;
+    height: 5vh;
+}
+
+.domicilio_continuar button{
+    background-color: rgb(59, 125, 225);
+    width: 15vw;
+    height: 100%;
+}
+
+/* paleta de colores:
+    11760F
+    FEFEFE
+    B60609
+    E25414
+    F3D8A6
+    D3B168
+    https://www.schemecolor.com/new-pizza-box-color-scheme.php
+*/

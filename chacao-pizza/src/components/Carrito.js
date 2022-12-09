@@ -6,12 +6,8 @@ import "./style-components.css";
 export const Carrito = () => {
   // Importar las variables globales
   const value = useContext(DataContext);
-
-  // Importar el carrito
   const [carrito, setCarrito] = value.carrito;
-
-  // Importar el total
-  const [total, setTotal] = value.total;
+  const [total] = value.total; // Precio total del carro de compras
 
   const resta = (id) => {
     carrito.forEach((item) => {
@@ -114,9 +110,9 @@ export const Carrito = () => {
           )}
         </div>
         <div className="carrito_footer">
-          {console.log("total", total)}
+          {console.log("total: ", total)}
+          {console.log("value total: ", value.total)}
           <h3>Total ${total}</h3>
-          <button className="btn">Pagar</button>
         </div>
       </div>
     </div>
