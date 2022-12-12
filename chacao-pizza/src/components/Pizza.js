@@ -1,6 +1,5 @@
 import React from "react";
 import "./style-components.css";
-import { Link } from "react-router-dom";
 import { DataContext } from "../context/Dataprovider";
 import { useContext } from "react";
 
@@ -10,27 +9,30 @@ export default function Pizza({ id, ruta, descripcion, asdf, precio }) {
 
   return (
     <div className="pizza">
-      <div className="ruta" style={{ fontSize: "1.9vw", marginLeft: "20%" }}>
+      <div className="ruta" style={{ fontSize: "1.6vw", marginLeft: "16%" }}>
         {ruta.toUpperCase()}
       </div>
-
       <img src={require("./pizzas/" + ruta + ".jpg")} alt={asdf} />
-
-      <div className="descripcionPizza">{descripcion}</div>
-      <br />
-
-      <div className="precio">{"$" + precio + " clp"}</div>
-
-      <button
-        className="hola"
+      <div className="descripcionPizza">{descripcion}</div> <br></br>
+      <div className="precio" style={{ marginLeft: "30%" }}>
+        {"$" + precio + " clp"}
+      </div>
+      <div
+        className="sssss"
         style={{
           width: "100%",
           backgroundColor: "#e25414",
         }}
         onClick={() => addCarrito(id)}
       >
-        <box-icon name="cart-add" />
-      </button>
+        <box-icon
+          name="cart-add"
+          style={{
+            marginLeft: "40%",
+            height: "100%",
+          }}
+        />
+      </div>
     </div>
   );
 }

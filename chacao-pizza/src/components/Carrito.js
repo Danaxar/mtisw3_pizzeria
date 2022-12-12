@@ -31,34 +31,37 @@ export const Carrito = () => {
   };
 
   const removeProducto = (id) => {
-    if (window.confirm("¿Quieres quitar el producto?")) {
-      // Se abre ventana de dialogo
-      // Por cada item en el carrito
-      carrito.forEach((item, index) => {
-        if (item.id === id) {
-          item.cantidad = 1; // Se inicializa en 1
-          carrito.splice(index, 1); // Eliminar todo el carrito hasta ese id
-        }
-      });
-      setCarrito([...carrito]);
-    }
+    // if (window.confirm("¿Quieres quitar el producto?")) {
+    // Se abre ventana de dialogo
+    // Por cada item en el carrito
+    carrito.forEach((item, index) => {
+      if (item.id === id) {
+        item.cantidad = 1; // Se inicializa en 1
+        carrito.splice(index, 1); // Eliminar todo el carrito hasta ese id
+      }
+    });
+    setCarrito([...carrito]);
+
+    // }
   };
 
   return (
     <div className="carritos">
       <div className="carrito">
         <div className="carrito_close">{/* icono de cerrar */}</div>
-        <h2 style={{ fontSize: "3vw" }}>Carro de compras</h2>
+        <h2 style={{ fontSize: "2.8vw" }}>Carro de compras 🛒</h2>
         <div className="carrito_center">
           {carrito.length === 0 ? (
-            <h2
-              style={{
-                textAign: "center",
-                fontSize: "3rem",
-              }}
-            >
-              {" "}
-              Carrito vacío
+            <h2 style={{ textAign: "center", fontSize: "3rem" }}>
+              <box-icon
+                name="cart-add"
+                style={{
+                  fill: "black",
+                  width: "50%",
+                  height: "auto",
+                  marginLeft: "20%",
+                }}
+              ></box-icon>
             </h2>
           ) : (
             <>
@@ -112,7 +115,7 @@ export const Carrito = () => {
         <div className="carrito_footer">
           {console.log("total: ", total)}
           {console.log("value total: ", value.total)}
-          <h3>Total ${total}</h3>
+          <h3>Total ${total} 💴</h3>
         </div>
       </div>
     </div>

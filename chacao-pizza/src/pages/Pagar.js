@@ -4,29 +4,22 @@ import { Carrito } from "../components/Carrito";
 import "./style-pages.css";
 import { useNavigate } from "react-router-dom";
 
-const Pagar = ({ ListaPizzas }) => {
-  const value = useContext(DataContext); // Importamos variables globales
-  const [carrito] = value.carrito;
-
+const Pagar = () => {
   const metodos_pago = [
-    [
-      "Efectivo",
-      "Se paga en la misma tienda o al momento de entrega en domicilio.",
-    ],
-    [
-      "Tarjeta (débito o crédito)",
-      "Se paga en la misma tienda o al momento de entrega en domicilio.",
-    ],
-    ["Webpay", "Se paga por internet al momento de la compra."],
+    "Efectivo 💵",
+    "Tarjeta (débito o crédito) 💳",
+    "Webpay 💻",
   ];
+  const metodos_pago_boxicon = [];
 
-  const propinas = ["Nada", "5%", "10%"];
-  const comprobantes = ["Boleta", "Factura"];
+  const propinas = ["Nada 😢", "5% 😊", "10% 🥰"];
+  const comprobantes = ["Boleta 🧾", "Factura 📋"];
 
   // Estados
   const [metodo_pago, setMetodo_pago] = useState([]);
   const [propina, setPropina] = useState([]);
   const [comprobante, setComprobante] = useState([]);
+  const [pagado, setPagado] = useState(false);
 
   const navigate = useNavigate();
   const finalizarCompra = () => {
@@ -49,84 +42,116 @@ const Pagar = ({ ListaPizzas }) => {
 
     // Procesar pago
     alert("Pago realizado con exito");
+    setPagado(true);
     //! Falta el comprobante
   };
 
   return (
-    <div className="screen_pago">
-      <h1>Pago del carrito de compras</h1>
-      <div className="lista_productos_pago">
-        <Carrito
-          style={{
-            width: "1px",
-          }}
-        />
-        <button
-          onClick={() => {
-            navigate("/comprar");
-          }}
-        >
-          Agregar más productos
-        </button>
-      </div>
-
-      <div className="datosCompra">
-        <div className="datosCompra-hijo">
-          <h1>Datos de la compra</h1>
-          <div className="metodos_pago">
-            <h1>Seleccione un método de pago *</h1>
-            <div className="metodo_pago_item">
-              {metodos_pago.map((element) => (
-                <div>
-                  <label>{element[0]}</label>
-                  <input
-                    value={element[0]}
-                    type={"radio"}
-                    name="metodo_pago"
-                    onChange={(e) => {
-                      setMetodo_pago(e.target.value);
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="propina">
-            <h1>Desea añadir propina? *</h1>
-            <div className="propina_item">
-              {propinas.map((element) => (
-                <div>
-                  <label>{element}</label>
-                  <input
-                    value={element}
-                    type={"radio"}
-                    name="propina"
-                    onChange={(e) => setPropina(e.target.value)}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="comprobante">
-            <h1>Seleccione un comprobante de pago *</h1>
-            <div className="propina_item">
-              {comprobantes.map((element) => (
-                <div>
-                  <label>{element}</label>
-                  <input
-                    value={element}
-                    type={"radio"}
-                    name="comprobantePago"
-                    onChange={(e) => setComprobante(e.target.value)}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+    <div className="pantalla_pago">
+      <h1 style={{ fontSize: "3vw", marginLeft: "35%" }}>
+        Finalice su compra 🍕
+      </h1>
+      <div className="screen_pago">
+        <div className="lista_productos_pago">
+          <Carrito
+            style={{
+              width: "1px",
+            }}
+          />
         </div>
-        <button onClick={() => finalizarCompra()}>Finalizar compra</button>
+
+        <div className="datosCompra">
+          <h1 style={{ marginLeft: "30%", fontSize: "1.5vw" }}>
+            Datos de la compra 🛍️
+          </h1>
+          <div className="datosCompra-hijo">
+            <div className="metodos_pago compraItem">
+              <h1 style={{ fontSize: "1.5vw" }}>
+                Seleccione un método de pago *
+              </h1>
+              <div className="metodo_pago_item">
+                {metodos_pago.map((element) => (
+                  <div className="agrandarLetraLabel">
+                    <label>{element}</label>
+                    <input
+                      value={element[0]}
+                      type={"radio"}
+                      name="metodo_pago"
+                      onChange={(e) => {
+                        setMetodo_pago(e.target.value);
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="propina compraItem">
+              <h1 style={{ fontSize: "1.5vw" }}>Desea añadir propina? *</h1>
+              <div className="propina_item">
+                {propinas.map((element) => (
+                  <div className="agrandarLetraLabel">
+                    <label>{element}</label>
+                    <input
+                      value={element}
+                      type={"radio"}
+                      name="propina"
+                      onChange={(e) => setPropina(e.target.value)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="comprobante compraItem">
+              <h1 style={{ fontSize: "1.5vw" }}>
+                Seleccione un comprobante de pago *
+              </h1>
+              <div className="propina_item">
+                {comprobantes.map((element) => (
+                  <div className="agrandarLetraLabel">
+                    <label>{element}</label>
+                    <input
+                      value={element}
+                      type={"radio"}
+                      name="comprobantePago"
+                      onChange={(e) => setComprobante(e.target.value)}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <button
+            className="botonFinalizarCompra"
+            onClick={() => finalizarCompra()}
+          >
+            Finalizar compra 💸
+          </button>
+          <button
+            className="botonVolver"
+            onClick={() => {
+              navigate("/comprar");
+            }}
+          >
+            Volver 👈🏻
+          </button>
+          {pagado === true ? (
+            <button
+              style={{
+                backgroundColor: "#fefefe",
+                color: "black",
+                fontSize: "2vw",
+                height: "10vh",
+                width: "30vw",
+                fontWeight: "bold",
+              }}
+              onClick={() => navigate("/comprobante")}
+            >
+              Mostrar comprobante
+            </button>
+          ) : null}
+        </div>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ import "boxicons"; //!
 import Personalizada from "./pages/Personalizada";
 import Agregado from "./pages/Agregados";
 import RetiroTienda from "./pages/RetiroTienda";
+import Comprobante from "./pages/Comprobante";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/personalizada" element={<Personalizada />} exact />
               <Route path="/agregado" element={<Agregado />} exact />
               <Route path="/retiro-tienda" element={<RetiroTienda />} exact />
+              <Route path="/comprobante" element={<Comprobante />} exact />
             </Routes>
           </div>
         </Layout>

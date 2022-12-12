@@ -36,7 +36,7 @@ const Domicilio = () => {
   return (
     <div className="screen_domicilio">
       <div className="formDomicilio">
-        <h1>Ingrese su ubicación</h1>
+        <h1>Ingrese su ubicación 🗺️📌</h1>
         <div className="domicilioInput">
           <label for="region">Region</label>
           <input
@@ -68,7 +68,7 @@ const Domicilio = () => {
         </div>
 
         <div className="domicilioInput">
-          <label for="Numero">Numero</label>
+          <label for="Numero">Numero #</label>
           <input
             type={"text"}
             name="Numero"
@@ -78,7 +78,7 @@ const Domicilio = () => {
         </div>
 
         <div className="domicilioInput">
-          <label for="NumeroDpto">NumeroDpto</label>
+          <label for="NumeroDpto">NumeroDpto #</label>
           <input
             type={"text"}
             name="NumeroDpto"
@@ -126,7 +126,7 @@ const Domicilio = () => {
       </div>
 
       <div className="domicilio_continuar">
-        <button onClick={() => navigate("/comprar")}>Continuar</button>
+        <button onClick={() => navigate("/comprar")}>Continuar 👉🏻</button>
       </div>
     </div>
   );

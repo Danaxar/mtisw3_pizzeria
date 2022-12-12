@@ -22,6 +22,7 @@ const Personalizada = () => {
     "jamón",
     "pollo",
     "tocino",
+    "ninguno",
   ];
 
   const ingredientesVegetales = [
@@ -32,6 +33,7 @@ const Personalizada = () => {
     "pimiento",
     "tomate",
     "champiñones",
+    "ninguno",
   ];
 
   const tipoQueso = ["Gouda", "Mozzarella"];
@@ -57,6 +59,12 @@ const Personalizada = () => {
       tipoMasaEstado,
       tamanoPizzaEstado,
     ].map((element) => element + ", ");
+
+    if (salida.find((element) => element == ", ")) {
+      alert("Rellene todos los campos");
+      console.log("Hay un campo vacio");
+      return;
+    }
 
     console.log("Características: ", salida); // * BIEN
 
@@ -203,12 +211,25 @@ const Personalizada = () => {
         onClick={() => crearPizzaPersonalizada()}
         style={{
           width: "30vw",
-          margin: "5%",
+          margin: "3%",
           backgroundColor: "green",
           height: "15vh",
+          fontSize: "5vh",
         }}
       >
         Añadir al carrito
+      </button>
+      <button
+        onClick={() => navigate("/comprar")}
+        style={{
+          width: "25vw",
+          margin: "5%",
+          backgroundColor: "rgb(59, 125, 225)",
+          height: "10vh",
+          fontSize: "5vh",
+        }}
+      >
+        Volver
       </button>
     </div>
   );

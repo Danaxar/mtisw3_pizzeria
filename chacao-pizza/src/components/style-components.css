@@ -116,6 +116,7 @@ img{
     border: 1px solid;
     border-color: black;
     overflow: scroll;
+    overflow-x: hidden;
 }
 
 .carrito_item{
