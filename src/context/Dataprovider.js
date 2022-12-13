@@ -14,6 +14,7 @@ export const DataProvider = (props) => {
 
   const [ubicacion, setUbicacion] = useState([]); // Aqui va la ubicación del domicilio // Lista de length = 4 (ciudad, comuna, calle, numero)
   const [locales, setLocales] = useState([]); // Aqui va el id del local
+  const [localRetiro, setLocalRetiro] = useState([]); // Aqui va el id del local escogido
 
   // Cargar la base de datos de productos a la variable de estado producto
   useEffect(() => {
@@ -113,6 +114,7 @@ export const DataProvider = (props) => {
     locales: [locales, setLocales],
     setUbicacion: setUbicacion,
     ubicacion: [ubicacion, setUbicacion],
+    localRetiro: [localRetiro, setLocalRetiro],
   };
 
   return (
