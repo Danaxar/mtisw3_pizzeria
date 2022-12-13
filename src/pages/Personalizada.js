@@ -60,7 +60,7 @@ const Personalizada = () => {
       tamanoPizzaEstado,
     ].map((element) => element + ", ");
 
-    if (salida.find((element) => element == ", ")) {
+    if (salida.find((element) => element === ", ")) {
       alert("Rellene todos los campos");
       console.log("Hay un campo vacio");
       return;
