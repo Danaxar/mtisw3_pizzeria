@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { DataContext } from "../context/Dataprovider";
+import React, { useState } from "react";
 import { Carrito } from "../components/Carrito";
 import "./style-pages.css";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +9,6 @@ const Pagar = () => {
     "Tarjeta (débito o crédito) 💳",
     "Webpay 💻",
   ];
-  const metodos_pago_boxicon = [];
 
   const propinas = ["Nada 😢", "5% 😊", "10% 🥰"];
   const comprobantes = ["Boleta 🧾", "Factura 📋"];

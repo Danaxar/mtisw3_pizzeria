@@ -1,5 +1,4 @@
 import React, { useState, useEffect, createContext } from "react";
-import { useNavigate } from "react-router-dom";
 import Data from "./Data";
 
 // Esto es lo que hay que importar usando el useContext()

@@ -1,5 +1,4 @@
-import React, { useState, useEffect, createContext, useContext } from "react";
-import Data from "../context/Data";
+import React, { useContext } from "react";
 import { DataContext } from "../context/Dataprovider";
 import "./style-components.css";
 

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style-pages.css";
 import { useNavigate } from "react-router-dom";
-import { DataContext, DataProvider } from "../context/Dataprovider";
+import { DataContext } from "../context/Dataprovider";
 
 const Domicilio = () => {
   // importar variables globales
