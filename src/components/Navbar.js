@@ -24,7 +24,7 @@ const Navbar = () => {
             <a href="/locales">Locales 🏘️</a>
           </li>
           <li>
-            <a href="/help">Ayuda ❓</a>
+            <a href="/">Ayuda ❓</a>
           </li>
         </ul>
       </nav>
