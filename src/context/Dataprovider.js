@@ -49,6 +49,10 @@ export const DataProvider = (props) => {
   useEffect(() => {
     const getTotal = () => {
       // Función para calcular el total
+      console.log("GetTotal: ", carrito); //! Aqui está el error: Carrito es nulo
+      if(carrito === [] || carrito === null){
+        return;
+      }
       const res = carrito.reduce((prev, item) => {
         return prev + item.precio * item.cantidad;
       }, 0);
