@@ -52,8 +52,16 @@ export const Carrito = () => {
         <h2 style={{ fontSize: "2.8vw" }}>Carro de compras 🛒</h2>
         <div className="carrito_center">
           {carrito.length === 0 ? (
-            <h2 style={{ textAign: "center", fontSize: "3rem" }}>
-              <box-icon
+            <h2
+              style={{
+                textAign: "center",
+                fontSize: "2rem",
+                userSelect: "none",
+                textAlign: "center",
+                marginTop: "25%",
+              }}
+            >
+              {/* <box-icon
                 name="cart-add"
                 style={{
                   fill: "black",
@@ -61,7 +69,8 @@ export const Carrito = () => {
                   height: "auto",
                   marginLeft: "20%",
                 }}
-              ></box-icon>
+              ></box-icon> */}
+              No has agregado nada 😢
             </h2>
           ) : (
             <>
@@ -87,24 +96,27 @@ export const Carrito = () => {
                       <h3>{producto.titulo}</h3>
                       <p className="price">{"$" + producto.precio} </p>
                     </div>
-                    <div>
-                      <box-icon
+                    <div className="controlCarro">
+                      {/* <box-icon
                         name="up-arrow"
                         type="solid"
                         onClick={() => suma(producto.id)}
-                      />
+                      /> */}
+                      <div onClick={() => suma(producto.id)}>⬆️</div>
                       <p className="cantidad"> {producto.cantidad} </p>
-                      <box-icon
+                      {/* <box-icon
                         name="down-arrow"
                         type="solid"
                         onClick={() => resta(producto.id)}
-                      />
+                      /> */}
+                      <div onClick={() => resta(producto.id)}>⬇️</div>
                     </div>
                     <button
                       className="remove_item"
                       onClick={() => removeProducto(producto.id)}
                     >
-                      <box-icon type="solid" name="trash"></box-icon>
+                      {/* <box-icon type="solid" name="trash"></box-icon> */}
+                      🗑️
                     </button>
                   </div>
                 ))

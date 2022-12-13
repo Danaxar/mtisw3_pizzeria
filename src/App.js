@@ -9,7 +9,6 @@ import Domicilio from "./pages/Domicilio";
 import Comprar from "./pages/Comprar";
 import Pagar from "./pages/Pagar";
 import { DataProvider } from "./context/Dataprovider";
-import "boxicons"; //!
 import Personalizada from "./pages/Personalizada";
 import Agregado from "./pages/Agregados";
 import RetiroTienda from "./pages/RetiroTienda";

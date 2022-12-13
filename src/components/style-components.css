@@ -119,6 +119,10 @@ img{
     overflow-x: hidden;
 }
 
+.carrito_center h2{
+    color: rgba(255,255,255,0.5)
+}
+
 .carrito_item{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr 1fr;
@@ -134,9 +138,20 @@ img{
     height: auto;
 }
 
+.controlCarro{
+    margin-top: 5%;
+    margin-left: 60%;
+    text-align: center;
+}
+
+.remove_item{
+    font-size: 2vw;
+}
+
 .carrito_item h3{
     margin-top: 1.5rem;
     font-size: 1rem;
+    margin-left: 5%;
 }
 
 /* .carrito_item .price */

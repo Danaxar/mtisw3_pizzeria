@@ -25,13 +25,18 @@ export default function Pizza({ id, ruta, descripcion, asdf, precio }) {
         }}
         onClick={() => addCarrito(id)}
       >
-        <box-icon
-          name="cart-add"
+        {/* <box-icon */}
+        {/* name="cart-add" */}
+        <div
           style={{
             marginLeft: "40%",
             height: "100%",
+            color: "black",
+            fontSize: "2.2vw",
           }}
-        />
+        >
+          🛒
+        </div>
       </div>
     </div>
   );
