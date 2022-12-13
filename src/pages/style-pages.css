@@ -21,7 +21,14 @@
     margin-bottom: 5%;
     font-size: 2vw;
     border-radius: 12px;
+    transition: all 0.3s;
+
 }
+
+.BtnIrComprar:hover{
+    background-color: #51b650;
+}
+
 
 .pizzaPersonalizada .descripcionPizza{
     font-size: 2vw;
@@ -164,17 +171,17 @@ input, button{
     margin-left: 50px;
 }
 
-.metodos_pago{
-    /* background-color: aqua; */
+/* .metodos_pago{
+    background-color: aqua;
 }
 
 .propina{
-    /* background-color: #11760f; */
+    background-color: #11760f;
 }
 
 .comprobante{
-    /* background-color: blue; */
-}
+    background-color: blue;
+} */
 
 .botonFinalizarCompra{
     margin-top: 5%;
@@ -185,9 +192,19 @@ input, button{
     
 }
 
+.botonFinalizarCompra:hover{
+    background-color: #53c351;
+    transition: all 0.3s;
+}
+
 .botonVolver{
     background-color: rgb(59, 125, 225);
     font-size: 1.4vw;
+}
+
+.botonVolver:hover{
+    background-color: rgb(120, 163, 226);
+    transition: all 0.3s;
 }
 
 /* ---------------------- DOMICILIO ---------------------- */

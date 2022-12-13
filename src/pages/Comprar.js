@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 //import { useNavigate } from "react-router-dom";
 import { Carrito } from "../components/Carrito";
@@ -8,9 +9,20 @@ import "./style-pages.css";
 
 const Comprar = () => {
   const value = useContext(DataContext);
+  console.log(value);
 
   // Importar el repositorio de productos
   const [productos] = value.productos;
+
+  const navigate = useNavigate();
+
+  const irAlPago = () => {
+    if (value.carrito[0].length === 0) {
+      alert("No has añadido productos a tu carro");
+      return;
+    }
+    navigate("/pagar");
+  };
 
   return (
     <div>
@@ -73,9 +85,9 @@ const Comprar = () => {
           }}
         >
           <Carrito rutaActual="/comprar" />
-          <a href="/pagar">
-            <button className="BtnIrComprar">Pagar</button>
-          </a>
+          <button className="BtnIrComprar" onClick={() => irAlPago()}>
+            Pagar
+          </button>
         </div>
       </div>
     </div>

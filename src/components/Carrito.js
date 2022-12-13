@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { DataContext } from "../context/Dataprovider";
 import "./style-components.css";
 
@@ -8,8 +7,6 @@ export const Carrito = (rutaActual) => {
   const value = useContext(DataContext);
   const [carrito, setCarrito] = value.carrito;
   const [total] = value.total; // Precio total del carro de compras
-
-  const navigate = useNavigate();
 
   const resta = (id) => {
     carrito.forEach((item) => {

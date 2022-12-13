@@ -104,7 +104,13 @@ img{
     font-family: 'Inter', sans-serif;
 }
 
+.agregarAlCarroPizza:hover{
+    background-color: #ec8353;
+    transition: all 0.3s;
+}
+
 /* -------------------- Carro de compras -------------------- */
+
 .carrito_item box-icon{
     fill: #11760F;
 }
@@ -117,6 +123,7 @@ img{
     border-color: black;
     overflow: scroll;
     overflow-x: hidden;
+    transition: all 0.3s;
 }
 
 .carrito_center h2{

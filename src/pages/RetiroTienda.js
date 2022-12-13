@@ -22,7 +22,7 @@ const RetiroTienda = () => {
     // Pasar la variable de estado local a la global
     setLocalRetiro(eleccion);
 
-    alert("Eleccion guardada con exito: " + eleccion);
+    alert("Eleccion guardada con exito");
 
     // Redirigir a la compra de pizzas
     navigate("/comprar");
