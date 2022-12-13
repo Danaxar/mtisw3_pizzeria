@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { DataContext } from "../context/Dataprovider";
-import Local from "../components/Local";
+// import Local from "../components/Local";
 
 const RetiroTienda = () => {
   const value = useContext(DataContext);
@@ -15,14 +15,14 @@ const RetiroTienda = () => {
       <div className="listaLocales">
         {
           // Aqui se muestran todos los locales en Data.js
-          locales.map((local) => (
-            <Local
-              nombre={local.nombre}
-              ubicacion={local.ubicacion}
-              key={local.id}
-              id={local.id}
-            />
-          ))
+          // locales.map((local) => (
+          // <Local
+          //   nombre={local.nombre}
+          //   ubicacion={local.ubicacion}
+          //   key={local.id}
+          //   id={local.id}
+          // />
+          // ))
         }
       </div>
     </div>

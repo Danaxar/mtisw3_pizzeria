@@ -154,19 +154,22 @@ const Data = {
       id: 1,
       nombre: "Local Maipú",
       ubicacion: ["Santiago", "Maipú", "Del rey", "2038"],
-      imagen: "",
+      imagen: "maipu",
+      descripcion:
+        "Esta ubicada cerca del metro santiago bueras" +
+        ", cuenta con delivery propio y externo",
     },
     {
       id: 2,
       nombre: "Local Providencia",
       ubicacion: ["Santiago", "Providencia", "Génova", "8302"],
-      imagen: "",
+      imagen: "providencia",
     },
     {
       id: 3,
-      nombre: "Local Vitacura",
-      ubicacion: ["Santiago", "Vitacura", "Maurice Ravel", "7777"],
-      imagen: "",
+      nombre: "Local San Miguel",
+      ubicacion: ["Santiago", "San Miguel", "Maurice Ravel", "7777"],
+      imagen: "sanmiguel",
     },
   ],
 };

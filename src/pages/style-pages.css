@@ -271,6 +271,28 @@ input, button{
     font-size: 3vw;
 }
 
+
+/* --------------- LOCALES --------------  */
+
+.localItem{
+    display: flex;
+    margin-bottom: 2%;
+    margin-left: 10%;
+    /* background-color: chartreuse; */
+    width: 80%;
+    border-radius: 30px 30px 30px 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.screen-locales .localItem .imagenLocal{
+    width: 15vw;
+}
+
+.screen-locales .localItem .textoLocal{
+    margin-left: 15%;
+    align-self: center;
+}
+
 /* paleta de colores:
     11760F
     FEFEFE

@@ -18,7 +18,7 @@ const Pagar = () => {
   const [metodo_pago, setMetodo_pago] = useState([]);
   const [propina, setPropina] = useState([]);
   const [comprobante, setComprobante] = useState([]);
-  const [pagado, setPagado] = useState(false);
+  const [setPagado] = useState(false);
 
   const navigate = useNavigate();
   const finalizarCompra = () => {
