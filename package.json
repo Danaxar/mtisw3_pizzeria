@@ -40,5 +40,24 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "build",
+    "rewrites": [ {
+      "source": "**",
+      "destination": "/index.html"
+    }],  
+    "ignore": [
+      "firebase.json",
+      "*/.",
+      "*/node_modules/*"
+    ]
+  },
+  "storage": {
+    "rules": "storage.rules"
   }
 }

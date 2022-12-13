@@ -21,57 +21,44 @@ const Comprar = () => {
         <div className="comprar">
           {
             // Aqui muestra todos los productos dentro de Data.js
-            productos.map((producto) => (
-              <Pizza
-                id={producto.id}
-                key={producto.id}
-                ruta={producto.imagen}
-                descripcion={producto.ingredientes}
-                alt={producto.titulo}
-                precio={producto.precio}
-              />
-            ))
+            productos.map((producto) =>
+              producto.id === 7 ? (
+                <div>
+                  <a
+                    href="/personalizada"
+                    style={{
+                      textDecoration: "none",
+                      backgroundColor: "white",
+                      width: "50%",
+                    }}
+                  >
+                    <Pizza
+                      id={producto.id}
+                      key={producto.id}
+                      titulo={producto.titulo}
+                      ruta={producto.imagen}
+                      descripcion={producto.ingredientes}
+                      alt={producto.titulo}
+                      precio={producto.precio}
+                    />
+                    <h1 style={{ fontSize: "3vw", textAlign: "center" }}>
+                      Agregados
+                    </h1>
+                  </a>
+                </div>
+              ) : (
+                <Pizza
+                  id={producto.id}
+                  key={producto.id}
+                  titulo={producto.titulo}
+                  ruta={producto.imagen}
+                  descripcion={producto.ingredientes}
+                  alt={producto.titulo}
+                  precio={producto.precio}
+                />
+              )
+            )
           }
-          <a
-            href="/agregado"
-            style={{
-              textDecoration: "none",
-              backgroundColor: "rgb(50,150,110, 0.8)",
-              width: "20%",
-              margin: "2%",
-              marginLeft: "5%",
-              borderRadius: "4%",
-            }}
-          >
-            <div className="agregados">
-              <div className="descripcionPizza">
-                Click aqui para seleccionar tus agregados
-                <br />
-                <br />
-                Bebidas, acompañamientos, salsas, etc.
-              </div>
-              <br />
-            </div>
-          </a>
-
-          <a
-            href="/personalizada"
-            style={{
-              textDecoration: "none",
-              backgroundColor: "rgb(50,150,110, 0.8)",
-              width: "20%",
-              margin: "2%",
-              marginLeft: "5%",
-              borderRadius: "4%",
-            }}
-          >
-            <div className="pizzaPersonalizada">
-              <div className="descripcionPizza">
-                Click aqui para configurar tu pizza personalizada.
-              </div>
-              <br />
-            </div>
-          </a>
         </div>
 
         <div
@@ -85,7 +72,7 @@ const Comprar = () => {
             borderRadius: "5%",
           }}
         >
-          <Carrito />
+          <Carrito rutaActual="/comprar" />
           <a href="/pagar">
             <button className="BtnIrComprar">Pagar</button>
           </a>

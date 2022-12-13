@@ -23,7 +23,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} exact />
               <Route path="/locales" element={<Locales />} exact />
-              <Route path="/login" element={<Login />} exact />
               <Route path="/domicilio" element={<Domicilio />} exact />
               <Route path="/comprar" element={<Comprar />} exact />
               <Route path="/pagar" element={<Pagar />} exact />

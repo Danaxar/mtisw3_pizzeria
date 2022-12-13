@@ -50,7 +50,7 @@ export const DataProvider = (props) => {
     const getTotal = () => {
       // Función para calcular el total
       console.log("GetTotal: ", carrito); //! Aqui está el error: Carrito es nulo
-      if(carrito === [] || carrito === null){
+      if (carrito === [] || carrito === null) {
         return;
       }
       const res = carrito.reduce((prev, item) => {

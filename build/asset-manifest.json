@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.abf3c9f5.css",
+    "main.js": "./static/js/main.3ec5cb10.js",
+    "static/js/787.a43e53d7.chunk.js": "./static/js/787.a43e53d7.chunk.js",
+    "static/media/portada.jpg": "./static/media/portada.edc44e1a2ac218d5c8b0.jpg",
+    "static/media/arma-tu-pizza.jpg": "./static/media/arma-tu-pizza.2fce8aed7b0390708533.jpg",
+    "static/media/agregados.jpg": "./static/media/agregados.e698cd0ac0df7f720659.jpg",
+    "static/media/pizza.jpg": "./static/media/pizza.3cbab9447779a7cde99d.jpg",
+    "static/media/BBQChiken.jpg": "./static/media/BBQChiken.c3ddb78b756193053743.jpg",
+    "static/media/mechadaBBQ.jpg": "./static/media/mechadaBBQ.3fcc0547cd381651f0bc.jpg",
+    "static/media/veganQueen.jpg": "./static/media/veganQueen.bdf1c0f6f86d6dec6b87.jpg",
+    "static/media/americana.jpg": "./static/media/americana.5786a25002602e593f4e.jpg",
+    "static/media/hawaiana.jpg": "./static/media/hawaiana.bd8e17cddc3964b2cfcb.jpg",
+    "static/media/campesina.jpg": "./static/media/campesina.9b7caafce2bfb8d4789a.jpg",
+    "index.html": "./index.html",
+    "main.abf3c9f5.css.map": "./static/css/main.abf3c9f5.css.map",
+    "main.3ec5cb10.js.map": "./static/js/main.3ec5cb10.js.map",
+    "787.a43e53d7.chunk.js.map": "./static/js/787.a43e53d7.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.abf3c9f5.css",
+    "static/js/main.3ec5cb10.js"
+  ]
+}

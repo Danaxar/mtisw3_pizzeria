@@ -23,16 +23,6 @@ const Domicilio = () => {
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (ubicacion) {
-      if (
-        !window.confirm("Ya tienes una ubicacion guardada\n¿Deseas cambiarla?")
-      ) {
-        navigate("/comprar");
-      }
-    }
-  }, []);
-
   return (
     <div className="screen_domicilio">
       <div className="formDomicilio">
