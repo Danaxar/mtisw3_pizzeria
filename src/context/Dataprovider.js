@@ -63,7 +63,7 @@ export const DataProvider = (props) => {
 
   // Guardará datos al carro
   const addCarrito = (id) => {
-    console.log("Añadiendo al carro...");
+    console.log("Añadiendo al carro... " + id);
     // Guarda datos a ese carrito
     const check = carrito.every((item) => {
       return item.id !== id;
@@ -106,7 +106,7 @@ export const DataProvider = (props) => {
 
   // -------------- EXPORTAR ------------------
   const value = {
-    productos: [productos],
+    productos: [productos, setProductos],
     addCarrito: addCarrito, // Hacer pública la función
     carrito: [carrito, setCarrito], // Hacer pública la variable carrito
     total: [total, setTotal],

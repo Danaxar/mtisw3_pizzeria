@@ -4,6 +4,7 @@ import "./style-pages.css";
 import { useNavigate } from "react-router-dom";
 
 const Pagar = () => {
+  const [correo, setCorreo] = useState("");
   const metodos_pago = [
     "Efectivo 💵",
     "Tarjeta (débito o crédito) 💳",
@@ -39,7 +40,10 @@ const Pagar = () => {
     }
 
     // Procesar pago
-    alert("Pago realizado con exito");
+    alert(
+      "Pago realizado con exito, se ha enviado el comprobante a su correo " +
+        correo
+    );
     setPagado(true);
     //! Falta el comprobante
   };
@@ -84,7 +88,10 @@ const Pagar = () => {
               </div>
             </div>
 
-            <div className="propina compraItem">
+            <div
+              className="propina compraItem"
+              style={{ marginTop: "5%", marginBottom: "5%" }}
+            >
               <h1 style={{ fontSize: "1.5vw" }}>Desea añadir propina? *</h1>
               <div className="propina_item">
                 {propinas.map((element) => (
@@ -120,6 +127,15 @@ const Pagar = () => {
               </div>
             </div>
           </div>
+          <label
+            style={{ marginRight: "5%" }}
+            onChange={(e) => setCorreo(e.target.value)}
+          >
+            Correo electronico
+          </label>
+          {console.log(correo)}
+          <input type={"text"} name="correo" />
+
           <button
             className="botonFinalizarCompra"
             onClick={() => finalizarCompra()}
@@ -134,7 +150,7 @@ const Pagar = () => {
           >
             Volver 👈🏻
           </button>
-          {pagado === true ? (
+          {/* {pagado === true ? (
             <button
               style={{
                 backgroundColor: "#fefefe",
@@ -148,7 +164,7 @@ const Pagar = () => {
             >
               Mostrar comprobante
             </button>
-          ) : null}
+          ) : null} */}
         </div>
       </div>
     </div>

@@ -2,11 +2,14 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DataContext } from "../context/Dataprovider";
 import "./style-pages.css";
+import { Carrito } from "../components/Carrito";
 
 const Personalizada = () => {
   const value = useContext(DataContext); // Ocupar las variables globales
+  const [productos, setProductos] = value.productos;
+  const [carrito, setCarrito] = value.carrito;
   const addCarrito = value.addCarrito; // Para acceder a la FUNCION addCarrito
-  const [items] = value.productos; // Importar el repositorio de productos
+  const [items] = value.productos;
   const navigate = useNavigate();
 
   // El item de id=7 es la pizza personalizada
@@ -22,7 +25,7 @@ const Personalizada = () => {
     "jamón",
     "pollo",
     "tocino",
-    "ninguno",
+    "ninguno ❌",
   ];
 
   const ingredientesVegetales = [
@@ -33,7 +36,7 @@ const Personalizada = () => {
     "pimiento",
     "tomate",
     "champiñones",
-    "ninguno",
+    "ninguno ❌",
   ];
 
   const tipoQueso = ["Gouda", "Mozzarella"];
@@ -78,8 +81,10 @@ const Personalizada = () => {
 
     console.log("Pizza personalizada: ", pizzaPersonalizada);
     // addCustomPizza(pizzaPersonalizada);
-    addCarrito(pizzaPersonalizada);
-    navigate("/comprar");
+    // addCarrito(pizzaPersonalizada);
+    addCarrito(7);
+    alert("Producto añadido! 😁");
+    // navigate("/comprar");
   };
 
   return (
@@ -88,7 +93,7 @@ const Personalizada = () => {
       <div className="opcionesPizza">
         <div className="Carnes seleccion">
           <div className="seleccionHijo">
-            <h2>El tamaño de la pizza:</h2>
+            <h2>El tamaño de la pizza 🍕:</h2>
             {tamanoPizza.map((element) => (
               <div>
                 <label>{element}</label>
@@ -98,7 +103,7 @@ const Personalizada = () => {
                   name="tamano"
                   onChange={(e) => {
                     setTamanoPizzaEstado(e.target.value);
-                    console.log("Estado tamaño pizza: " + e.target.value);
+                    // console.log("Estado tamaño pizza: " + e.target.value);
                   }}
                 />
               </div>
@@ -108,7 +113,7 @@ const Personalizada = () => {
 
         <div className="tipoMasa seleccion">
           <div className="seleccionHijo">
-            <h2>Selecciona el tipo de masa:</h2>
+            <h2>Selecciona el tipo de masa 🍞:</h2>
             {tipoMasa.map((element) => (
               <div>
                 <label>{element}</label>
@@ -118,7 +123,7 @@ const Personalizada = () => {
                   name="masa"
                   onChange={(e) => {
                     setTipoMasaEstado(e.target.value);
-                    console.log("Tipo de masa: " + e.target.value);
+                    // console.log("Tipo de masa: " + e.target.value);
                   }}
                 />
               </div>
@@ -128,7 +133,7 @@ const Personalizada = () => {
 
         <div className="tipoQueso seleccion">
           <div className="seleccionHijo">
-            <h2>Selecciona el tipo de queso:</h2>
+            <h2>Selecciona el tipo de queso 🧀:</h2>
             {tipoQueso.map((element) => (
               <div>
                 <label>{element}</label>
@@ -138,7 +143,7 @@ const Personalizada = () => {
                   name="Queso"
                   onChange={(e) => {
                     setTipoQuesoEstado(e.target.value);
-                    console.log("Tipo de queso: " + e.target.value);
+                    // console.log("Tipo de queso: " + e.target.value);
                   }}
                 />
               </div>
@@ -148,7 +153,7 @@ const Personalizada = () => {
 
         <div className="cantidadQueso seleccion">
           <div className="seleccionHijo">
-            <h2>Selecciona la cantidad de queso:</h2>
+            <h2>Selecciona la cantidad de queso 🧀:</h2>
             {cantidadQueso.map((element) => (
               <div>
                 <label>{element}</label>
@@ -158,7 +163,7 @@ const Personalizada = () => {
                   name="cantidadQueso"
                   onChange={(e) => {
                     setCantidadQuesoEstado(e.target.value);
-                    console.log("Cantidad de queso: " + e.target.value);
+                    // console.log("Cantidad de queso: " + e.target.value);
                   }}
                 />
               </div>
@@ -168,7 +173,7 @@ const Personalizada = () => {
 
         <div className="ingredientesCarnes seleccion">
           <div className="seleccionHijo">
-            <h2>Selecciona los ingredientes de carnes:</h2>
+            <h2>Selecciona los ingredientes de carnes 🥩:</h2>
             {ingredientesCarnes.map((element) => (
               <div>
                 <label>{element}</label>
@@ -178,7 +183,7 @@ const Personalizada = () => {
                   name="cantidadCarne"
                   onChange={(e) => {
                     setIngredientesCarnes(e.target.value);
-                    console.log("Ingredientes carnes: " + e.target.value);
+                    // console.log("Ingredientes carnes: " + e.target.value);
                   }}
                 />
               </div>
@@ -188,7 +193,7 @@ const Personalizada = () => {
 
         <div className="ingredientesVegetales seleccion">
           <div className="seleccionHijo">
-            <h2>Selecciona los ingredientes de vegetales:</h2>
+            <h2>Selecciona los ingredientes de vegetales 🍅:</h2>
             {ingredientesVegetales.map((element) => (
               <div>
                 <label>{element}</label>
@@ -198,7 +203,7 @@ const Personalizada = () => {
                   name="vegetales"
                   onChange={(e) => {
                     setIngredientesVegetales(e.target.value);
-                    console.log("Ingredientes vegetales: " + e.target.value);
+                    // console.log("Ingredientes vegetales: " + e.target.value);
                   }}
                 />
               </div>
@@ -217,8 +222,9 @@ const Personalizada = () => {
           fontSize: "5vh",
         }}
       >
-        Añadir al carrito
+        Añadir al carrito 🛒
       </button>
+
       <button
         onClick={() => navigate("/comprar")}
         style={{
@@ -229,7 +235,7 @@ const Personalizada = () => {
           fontSize: "5vh",
         }}
       >
-        Volver
+        Volver 👈🏻
       </button>
     </div>
   );

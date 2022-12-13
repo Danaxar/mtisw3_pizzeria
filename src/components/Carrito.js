@@ -127,8 +127,6 @@ export const Carrito = (rutaActual) => {
           )}
         </div>
         <div className="carrito_footer">
-          {console.log("total: ", total)}
-          {console.log("value total: ", value.total)}
           <h3>Total ${total} 💴</h3>
         </div>
       </div>
